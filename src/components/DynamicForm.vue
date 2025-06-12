@@ -387,31 +387,40 @@ onMounted(() => {
 <style scoped>
 /* 动态表单样式 */
 .dynamic-form {
-  max-width: 800px;
+  max-width: 100%; /* 移除固定最大宽度，由父容器控制 */
   margin: 0 auto;
-  padding: 20px;
+  padding: 24px; /* 调整内边距 */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-header {
-  text-align: center;
-  margin-bottom: 30px;
+  text-align: left; /* 标题左对齐 */
+  margin-bottom: 24px; /* 调整外边距 */
+  padding-bottom: 16px; /* 增加底部内边距 */
+  border-bottom: 1px solid #f0f0f0; /* 添加分隔线 */
 }
 
 .form-header h2 {
-  color: #303133;
-  margin-bottom: 10px;
+  color: #1f2d3d; /* 深色标题 */
+  margin-bottom: 8px; /* 调整外边距 */
+  font-size: 1.6rem; /* 调整字体大小 */
+  font-weight: 600; /* 调整字重 */
 }
 
 .form-description {
-  color: #606266;
-  font-size: 14px;
+  color: #5a5e66; /* 调整字体颜色 */
+  font-size: 0.9rem; /* 调整字体大小 */
+  line-height: 1.6;
 }
 
 .dynamic-form-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  background: #ffffff; /* 保持白色背景 */
+  padding: 24px; /* 调整内边距 */
+  border-radius: 6px; /* 调整圆角 */
+  /* 移除独立阴影，由父容器 .form-container 控制 */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .multiple-input-container {
@@ -421,8 +430,8 @@ onMounted(() => {
 .multiple-input-item {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  gap: 10px;
+  margin-bottom: 12px; /* 调整外边距 */
+  gap: 12px; /* 调整间距 */
 }
 
 .multiple-input {
@@ -430,50 +439,154 @@ onMounted(() => {
 }
 
 .add-button {
-  margin-top: 5px;
+  margin-top: 8px; /* 调整外边距 */
 }
 
 .field-description {
-  font-size: 12px;
-  color: #909399;
-  margin-top: 5px;
-  line-height: 1.4;
+  font-size: 0.85rem; /* 调整字体大小 */
+  color: #8c939d; /* 调整字体颜色 */
+  margin-top: 6px; /* 调整外边距 */
+  line-height: 1.5;
 }
 
 .computed-field {
-  background-color: #f5f7fa;
+  background-color: #f7f8fa; /* 调整背景色 */
+  padding: 10px 12px; /* 调整内边距 */
+  border-radius: 4px; /* 调整圆角 */
+  border: 1px solid #e4e7ed; /* 添加边框 */
 }
 
 .form-actions {
-  text-align: center;
-  margin-top: 30px;
+  text-align: right; /* 操作按钮右对齐 */
+  margin-top: 32px; /* 调整外边距 */
+  padding-top: 24px; /* 增加顶部内边距 */
+  border-top: 1px solid #f0f0f0; /* 添加分隔线 */
 }
 
 .data-preview {
-  background-color: #f5f7fa;
-  padding: 15px;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
+  background-color: #f7f8fa; /* 调整背景色 */
+  padding: 16px; /* 调整内边距 */
+  border-radius: 6px; /* 调整圆角 */
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; /* 使用更现代的等宽字体 */
+  font-size: 0.8rem; /* 调整字体大小 */
   max-height: 400px;
   overflow-y: auto;
+  border: 1px solid #e4e7ed; /* 添加边框 */
 }
 
 .export-section {
-  margin-top: 30px;
-  padding: 20px;
-  background: #fafbfc;
-  border-radius: 8px;
-  border: 1px solid #e4e7ed;
+  margin-top: 32px; /* 调整外边距 */
+  padding: 24px; /* 调整内边距 */
+  background: #f7f8fa; /* 调整背景色 */
+  border-radius: 6px; /* 调整圆角 */
+  border: 1px solid #e4e7ed; /* 添加边框 */
 }
 
-.export-section .el-divider {
-  margin: 0 0 20px 0;
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .dynamic-form {
+    padding: 16px; /* 调整内边距 */
+  }
+  
+  .form-header h2 {
+    font-size: 1.4rem; /* 调整字体大小 */
+  }
+  
+  .form-description {
+    font-size: 0.85rem; /* 调整字体大小 */
+  }
+  
+  .dynamic-form-content {
+    padding: 16px; /* 调整内边距 */
+  }
+  
+  .multiple-input-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px; /* 调整间距 */
+  }
+  
+  .form-actions {
+    text-align: center; /* 中小屏幕操作按钮居中 */
+  }
 }
 
-.export-section .el-divider__text {
-  background-color: #fafbfc;
-  color: #606266;
-  font-weight: 500;
+@media (max-width: 480px) {
+  .dynamic-form {
+    padding: 12px; /* 调整内边距 */
+  }
+
+  .form-header {
+    padding-bottom: 12px; /* 调整内边距 */
+    margin-bottom: 16px; /* 调整外边距 */
+  }
+
+  .form-header h2 {
+    font-size: 1.3rem; /* 调整字体大小 */
+  }
+
+  .dynamic-form-content {
+    padding: 12px; /* 调整内边距 */
+  }
+
+  .form-actions {
+    margin-top: 24px; /* 调整外边距 */
+    padding-top: 16px; /* 调整内边距 */
+  }
+
+  .field-description {
+    font-size: 0.8rem; /* 调整字体大小 */
+  }
+
+  .data-preview {
+    font-size: 0.75rem; /* 调整字体大小 */
+  }
 }
+
+/* 表单项响应式布局 */
+@media (max-width: 768px) {
+  :deep(.el-form-item) {
+    margin-bottom: 18px;
+  }
+  
+  :deep(.el-form-item__label) {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  :deep(.el-input__inner) {
+    font-size: 14px;
+  }
+  
+  :deep(.el-select) {
+    width: 100%;
+  }
+  
+  :deep(.el-date-editor) {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :deep(.el-form-item__label) {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+  
+  :deep(.el-input__inner) {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+  
+  :deep(.el-button) {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+  
+  :deep(.el-button--small) {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
 </style>

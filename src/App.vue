@@ -128,48 +128,56 @@ onMounted(() => {
 </template>
 
 <style scoped>
+/* 全局样式，确保 html 和 body 充满视口并设置背景色 */
+:global(html, body) {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5; /* 将背景色应用到 body */
+}
+
 /* 主应用样式 */
 #app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* background: #f0f2f5; */ /* 移除这里的背景色，让 body 的背景色显示出来 */
 }
 
 /* 应用头部样式 */
 .app-header {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  padding: 20px 0;
+  background: #ffffff; /* 纯白背景 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* 调整阴影效果 */
+  padding: 24px 0; /* 调整内边距 */
+  border-bottom: 1px solid #e8e8e8; /* 添加底部边框 */
 }
 
 .header-content {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 24px; /* 调整内边距 */
 }
 
 .app-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #2c3e50;
-  margin: 0 0 10px 0;
+  font-size: 2.2rem; /* 调整字体大小 */
+  font-weight: 600; /* 调整字重 */
+  color: #1f2d3d; /* 深色标题 */
+  margin: 0 0 8px 0; /* 调整外边距 */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 12px; /* 调整间距 */
 }
 
 .title-icon {
-  font-size: 2.5rem;
-  color: #409eff;
+  font-size: 2.2rem; /* 调整图标大小 */
+  color: #3a8ee6; /* Element Plus 主题蓝 */
 }
 
 .app-subtitle {
-  font-size: 1.1rem;
-  color: #7f8c8d;
+  font-size: 1rem; /* 调整字体大小 */
+  color: #5a5e66; /* 调整字体颜色 */
   margin: 0;
   font-weight: 400;
 }
@@ -177,7 +185,7 @@ onMounted(() => {
 /* 主要内容区域样式 */
 .app-main {
   flex: 1;
-  padding: 40px 20px;
+  padding: 32px 24px; /* 调整内边距 */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -190,72 +198,112 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 8px; /* 调整圆角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 调整阴影 */
 }
 
 .form-container {
   width: 100%;
-  max-width: 900px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
+  max-width: 960px; /* 调整最大宽度 */
+  background: #ffffff;
+  border-radius: 8px; /* 调整圆角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 调整阴影 */
   overflow: hidden;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* 应用底部样式 */
 .app-footer {
-  background: rgba(44, 62, 80, 0.9);
-  color: #ecf0f1;
+  background: #304156; /* 深色背景 */
+  color: #a7b1c2; /* 调整字体颜色 */
   text-align: center;
-  padding: 20px;
+  padding: 24px; /* 调整内边距 */
   margin-top: auto;
 }
 
 .app-footer p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem; /* 调整字体大小 */
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
   .app-title {
-    font-size: 2rem;
+    font-size: 1.8rem; /* 调整字体大小 */
     flex-direction: column;
-    gap: 10px;
+    gap: 8px; /* 调整间距 */
   }
   
   .title-icon {
-    font-size: 2rem;
+    font-size: 1.8rem; /* 调整图标大小 */
   }
   
   .app-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem; /* 调整字体大小 */
   }
   
   .app-main {
-    padding: 20px 10px;
+    padding: 24px 16px; /* 调整内边距 */
   }
   
   .form-container {
-    margin: 0 10px;
-    border-radius: 12px;
+    margin: 0;
+    border-radius: 6px; /* 调整圆角 */
+    max-width: 100%;
+  }
+  
+  .app-header {
+    padding: 16px 0; /* 调整内边距 */
+  }
+  
+  .header-content {
+    padding: 0 16px; /* 调整内边距 */
   }
 }
 
 @media (max-width: 480px) {
   .app-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem; /* 调整字体大小 */
   }
   
   .header-content {
-    padding: 0 15px;
+    padding: 0 12px; /* 调整内边距 */
   }
   
   .app-main {
-    padding: 15px 5px;
+    padding: 16px 8px; /* 调整内边距 */
+  }
+  
+  .form-container {
+    border-radius: 4px; /* 调整圆角 */
+  }
+  
+  .app-footer {
+    padding: 16px 12px; /* 调整内边距 */
+  }
+  
+  .app-footer p {
+    font-size: 0.75rem; /* 调整字体大小 */
+  }
+}
+
+@media (max-width: 360px) {
+  .app-title {
+    font-size: 1.4rem; /* 调整字体大小 */
+  }
+  
+  .app-subtitle {
+    font-size: 0.8rem; /* 调整字体大小 */
+  }
+  
+  .app-main {
+    padding: 12px 4px; /* 调整内边距 */
+  }
+  
+  .header-content {
+    padding: 0 8px; /* 调整内边距 */
   }
 }
 
@@ -278,13 +326,31 @@ onMounted(() => {
 /* 响应式调整 */
 @media (max-width: 768px) {
   .form-toolbar {
-    margin: 0 10px 20px 10px;
+    margin: 0 0 20px 0;
     padding: 10px 15px;
+    border-radius: 6px;
   }
   
   .template-manager-section {
-     margin: 0 10px 20px 10px;
-     padding: 0 10px;
+     margin: 0 0 20px 0;
+     padding: 0 15px;
+   }
+ }
+ 
+ @media (max-width: 480px) {
+   .form-toolbar {
+     padding: 8px 12px;
+     margin-bottom: 15px;
+   }
+   
+   .template-manager-section {
+     padding: 0 12px;
+     margin-bottom: 15px;
+   }
+   
+   .form-toolbar .el-button-group .el-button {
+     font-size: 13px;
+     padding: 6px 12px;
    }
  }
 
