@@ -58,7 +58,7 @@ onMounted(() => {
 
 <template>
   <!-- 主应用模板 -->
-  <div id="app">
+  <div class="app">
     <!-- 应用头部 -->
     <header class="app-header">
       <div class="header-content">
@@ -137,7 +137,7 @@ onMounted(() => {
 }
 
 /* 主应用样式 */
-#app {
+.app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
